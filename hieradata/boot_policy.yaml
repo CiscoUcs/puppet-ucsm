@@ -1,0 +1,8 @@
+---
+boot_policy::name : ciscotest12
+boot_policy::descr : ciscotest12
+boot_policy::reboot_on_update : no
+boot_policy::policy_owner : local
+boot_policy::enforce_vnic_name : yes
+boot_policy::boot_mode : uefi
+boot_policy::state : present

@@ -1,0 +1,15 @@
+{
+  "name": "ucsm-ucsm",
+  "version": "0.0.1",
+  "author": "Pavan S Koundinya",
+  "summary": null,
+  "license": "Open Source",
+  "source": "",
+  "project_page": null,
+  "issues_url": null,
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ],
+  "data_provider": null
+}
+
