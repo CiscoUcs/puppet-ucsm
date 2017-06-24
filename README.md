@@ -1,4 +1,4 @@
-# ucsm_dockerdc_puppet
+# puppet-ucsm
 
 #### Table of Contents
 1. [Module Description](#Module-Description)
@@ -9,12 +9,12 @@
 6. [Development - Guide for contributing to the module](#development)
 
 ## Module-Description
-Cisco ucsm_dockerdc_puppet module allows administrators to automate all aspects of Cisco UCS management including server, network, storage and hypervisor management. Bulk of the Cisco ucsm_dockerdc_puppet module work on the UCS Manager’s Management Information Tree (MIT), performing create, modify or delete actions on the Managed Objects (MO) in the tree. 
+The Cisco Puppet module for UCSM allows administrators to automate all aspects of Cisco UCS management including server, network, storage and hypervisor management. The bulk of the Cisco UCSM Puppet module workon the UCS Manager’s Management Information Tree (MIT), performing create, modify or delete actions on the Managed Objects (MO) in the tree. 
 The resources and capabilities provided by this Puppet Module will grow with contributions from Cisco, Puppet Labs and the open source community.
 
 ##### Dependencies
 
-The ucsm_dockerdc_puppet module has a dependency on the ucsmsdk python library. See the Setup section that follows for more information on ucsmsdk.
+The ucsm module has a dependency on the ucsmsdk python library. See the Setup section that follows for more information on ucsmsdk.
 
 ##### Contributing
 
@@ -27,10 +27,10 @@ To install git use the following command :
    ``` 
    yum install git -y
    ```
-The ucsm_dockerdc_puppet module must be cloned on the Puppet Master server. We recommend cloning in the modules directory.
+The ucsm module must be cloned on the Puppet Master server. We recommend cloning in the modules directory.
 
    ```
-   https://github.com/pavan-koundinya/ucsm.git
+   git clone https://github.com/CiscoUcs/puppet-ucsm ucsm
    ``` 
   
 To install pip package installer use the following commands.
@@ -51,7 +51,7 @@ Software version Dependencies
 ## Example-Manifests
 
 ##### Bios Policy example manifest:
-The following example demonstrates how to define a manifest that uses ucsm_dockerdc_puppet module  to configure bios policy on a Cisco UCS.
+The following example demonstrates how to define a manifest that uses the ucsm module  to configure bios policy on a Cisco UCS.
 
 ```
 ucsm_bios_policy{'biosVProfile':                                                                              
@@ -84,7 +84,7 @@ password => The administrative password
 state => This parameter ensures whether the policy should be present or absent on the UCS server.
 
 ##### Vlan example manifest :
-The following example demonstrates how to define a manifest that uses ucsm_dockerdc_puppet module  to configure Vlan on a Cisco UCS.
+The following example demonstrates how to define a manifest that uses the ucsm module  to configure Vlan on a Cisco UCS.
 
 ```
 ucsm_vlan{'fabricVlan':
@@ -117,7 +117,7 @@ password => The administrative password
 state => This parameter ensures whether the policy should be present or absent on the UCS server.
 
 ##### Boot Policy example manifest :
-The following example demonstrates how to define a manifest that uses ucsm_dockerdc_puppet module  to configure boot policy on a Cisco UCS.
+The following example demonstrates how to define a manifest that uses the ucsm module  to configure boot policy on a Cisco UCS.
 
 ```
 ucsm_boot_policy{'PXE-Local-Boot':
@@ -153,7 +153,7 @@ password => The administrative password
 state => This parameter ensures whether the policy should be present or absent on the UCS server.
 
 ##### Macpool example manifest :
-The following example demonstrates how to define a manifest that uses ucsm_dockerdc_puppet module  to configure mac pool on a Cisco UCS.
+The following example demonstrates how to define a manifest that uses the ucsm module  to configure mac pool on a Cisco UCS.
 
 ```
 ucsm_macpool{'macpoolPool':
@@ -189,7 +189,7 @@ password => The administrative password
 state => This parameter ensures whether the policy should be present or absent on the UCS server.
 
 ##### Uuidpool example manifest :
-The following example demonstrates how to define a manifest that uses ucsm_dockerdc_puppet module  to configure uuid pool on a Cisco UCS.
+The following example demonstrates how to define a manifest that uses the ucsm module  to configure uuid pool on a Cisco UCS.
 
 ```
 ucsm_uuid_pool{'Pool':
@@ -225,7 +225,7 @@ password => The administrative password
 state => This parameter ensures whether the policy should be present or absent on the UCS server.
 
 ##### Disk group configuration policy example manifest :
-The following example demonstrates how to define a manifest that uses ucsm_dockerdc_puppet module  to configure disk group configuration policy on Cisco UCS.
+The following example demonstrates how to define a manifest that uses the ucsm module  to configure disk group configuration policy on Cisco UCS.
 
 ```
 ucsm_disk_group_policy{'diskgroupconfiguration':
@@ -261,7 +261,7 @@ password => The administrative password
 state => This parameter ensures whether the policy should be present or absent on the UCS server.
 
 ##### Host firmware package example manifest :
-The following example demonstrates how to define a manifest that uses ucsm_dockerdc_puppet module  to configure Host firmware package on Cisco UCS.
+The following example demonstrates how to define a manifest that uses the ucsm module  to configure Host firmware package on Cisco UCS.
 
 ```
 ucsm_hostfirmwarepackage{'firmwareComputeHostPack':
@@ -291,7 +291,7 @@ password => The administrative password
 state => This parameter ensures whether the policy should be present or absent on the UCS server.
 
 ##### Server pool example manifest :
-The following example demonstrates how to define a manifest that uses ucsm_dockerdc_puppet module  to configure server pool on Cisco UCS.
+The following example demonstrates how to define a manifest that uses the ucsm module  to configure server pool on Cisco UCS.
 
 ```
 ucsm_serverpool{'ComputePool':
@@ -324,7 +324,7 @@ password => The administrative password
 state => This parameter ensures whether the policy should be present or absent on the UCS server.
 
 ##### Vnic template example manifest :
-The following example demonstrates how to define a manifest that uses ucsm_dockerdc_puppet module  to configure vnic template on Cisco UCS.
+The following example demonstrates how to define a manifest that uses the ucsm module  to configure vnic template on Cisco UCS.
 
 ```
 ucsm_vnic_template {"vnicLanConnTempl":
@@ -378,7 +378,7 @@ password => The administrative password
 state => This parameter ensures whether the policy should be present or absent on the UCS server.
 
 ##### Storage profile example manifest :
-The following example demonstrates how to define a manifest that uses ucsm_dockerdc_puppet module  to configure storage profile on Cisco UCS.
+The following example demonstrates how to define a manifest that uses the ucsm module  to configure storage profile on Cisco UCS.
 
 ```
 ucsm_storageprofile{'storageprofile':
@@ -411,7 +411,7 @@ password => The administrative password
 state => This parameter ensures whether the policy should be present or absent on the UCS server.
 
 ##### Service profile template example manifest :
-The following example demonstrates how to define a manifest that uses ucsm_dockerdc_puppet module  to configure service profile template on Cisco UCS.
+The following example demonstrates how to define a manifest that uses the ucsm module  to configure service profile template on Cisco UCS.
 
 ```
 ucsm_serviceprofiletemplate{'serviceprofiletemplate':
