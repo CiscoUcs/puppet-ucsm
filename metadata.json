@@ -1,12 +1,12 @@
 {
-  "name": "ucsm-ucsm",
+  "name": "ciscoucs-ucsm",
   "version": "0.0.1",
   "author": "Pavan S Koundinya",
-  "summary": null,
-  "license": "Open Source",
-  "source": "",
-  "project_page": null,
-  "issues_url": null,
+  "summary": "Cisco UCS Configuration management via Puppet",
+  "license": "Apache-2.0",
+  "source": "https://github.com/CiscoUcs/puppet-ucsm",
+  "project_page": "https://github.com/CiscoUcs/puppet-ucsm",
+  "issues_url": "https://github.com/CiscoUcs/puppet-ucsm/issues",
   "dependencies": [
     {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
   ],
