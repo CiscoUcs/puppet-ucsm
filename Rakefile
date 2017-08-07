@@ -10,6 +10,8 @@ end
 PuppetLint.configuration.send('disable_80chars')
 PuppetLint.configuration.relative = true
 PuppetLint.configuration.ignore_paths = ['spec/**/*.pp', 'pkg/**/*.pp']
+PuppetLint.configuration.send('disable_140chars')
+PuppetLint.configuration.send('disable_arrow_alignment')
 
 desc 'Validate manifests, templates, and ruby files'
 task :validate do
