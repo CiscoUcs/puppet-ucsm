@@ -1,6 +1,6 @@
 {
   "name": "ciscoucs-ucsm",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Pavan S Koundinya",
   "summary": "Cisco UCS Configuration management via Puppet",
   "license": "Apache-2.0",

@@ -1,6 +1,6 @@
 require 'json'
 
-Puppet::Type.type(:ucsm_serviceprofiletemplate).provide :ruby do
+Puppet::Type.type(:ucsm_serviceprofile).provide :ruby do
  
   mk_resource_methods
   def handle
@@ -10,27 +10,14 @@ Puppet::Type.type(:ucsm_serviceprofiletemplate).provide :ruby do
      param_obj[:ip]=@resource[:ip]
      param_obj[:username]=@resource[:username]
      param_obj[:password]=@resource[:password]
-     param_obj[:type] = @resource[:type]
-     param_obj[:ident_pool_name] = @resource[:ident_pool_name]
-     param_obj[:local_disk_policy_name] = @resource[:local_disk_policy_name]
-     param_obj[:boot_policy_name] = @resource[:boot_policy_name]
-     param_obj[:bios_profile_name] = @resource[:bios_profile_name]
-     param_obj[:host_fw_policy_name] = @resource[:host_fw_policy_name]
-     param_obj[:mgmt_ip_address] = @resource[:mgmt_ip_address]
-     param_obj[:maint_policy_name] = @resource[:maint_policy_name]
-     param_obj[:vnic_name] = @resource[:vnic_name]
-     param_obj[:vnic_template_name] = @resource[:vnic_template_name]
-     param_obj[:adapter_profile_name] = @resource[:adapter_profile_name]
-     param_obj[:storage_profile_name] = @resource[:storage_profile_name]
-     param_obj[:server_pool_name] = @resource[:server_pool_name]
-     param_obj[:vnic_order]=@resource[:vnic_order]
+     param_obj[:src_templ_name]=@resource[:src_templ_name]
      param_obj[:state]=@resource[:state]
      #converting object to JSON string
      json_object=JSON.dump param_obj.to_json
      #Call to the python script using puppet execute along with all the parameters 
      path = File.join(File.dirname(__FILE__), '..', '..', '..')
      current = Puppet::Util::Execution.execute(
-      "python #{path}/service_profile_template.py #{json_object}",
+      "python #{path}/service_profile.py #{json_object}",
       :failonfail => true
     )
 Puppet.debug("#{current}")
@@ -60,25 +47,12 @@ def green(text); colorize(text, 32); end
      	param_obj[:ip]=@resource[:ip]
      	param_obj[:username]=@resource[:username]
      	param_obj[:password]=@resource[:password]
-    	param_obj[:type] = @resource[:type]
-    	param_obj[:ident_pool_name] = @resource[:ident_pool_name]
-    	param_obj[:local_disk_policy_name] = @resource[:local_disk_policy_name]
-    	param_obj[:boot_policy_name] = @resource[:boot_policy_name]
-     	param_obj[:bios_profile_name] = @resource[:bios_profile_name]
-     	param_obj[:host_fw_policy_name] = @resource[:host_fw_policy_name]
-     	param_obj[:mgmt_ip_address] = @resource[:mgmt_ip_address]
-     	param_obj[:maint_policy_name] = @resource[:maint_policy_name]
-     	param_obj[:vnic_name] = @resource[:vnic_name]
-     	param_obj[:vnic_template_name] = @resource[:vnic_template_name]
-     	param_obj[:adapter_profile_name] = @resource[:adapter_profile_name]
-     	param_obj[:storage_profile_name] = @resource[:storage_profile_name]
-     	param_obj[:server_pool_name] = @resource[:server_pool_name]
-     	param_obj[:vnic_order]=@resource[:vnic_order]
+        param_obj[:src_templ_name]=@resource[:src_templ_name]
 
      	json_object=JSON.dump param_obj.to_json	
 	path = File.join(File.dirname(__FILE__), '..', '..', '..')
      	current = Puppet::Util::Execution.execute(
-      	"python #{path}/query_service_profile_template.py #{json_object}",
+      	"python #{path}/query_service_profile.py #{json_object}",
       	:failonfail => true
     	)
  	if(current.eql? "true")
@@ -109,7 +83,7 @@ def green(text); colorize(text, 32); end
 	json_object=JSON.dump param_obj.to_json
         path = File.join(File.dirname(__FILE__), '..', '..', '..')
         current = Puppet::Util::Execution.execute(
-        "python #{path}/serviceProfileTemplateInstances.py #{json_object}",
+        "python #{path}/serviceProfileInstances.py #{json_object}",
         :failonfail => true
         )
   end
